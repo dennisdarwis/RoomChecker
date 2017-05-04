@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  RoomChecker
 //
-//  Created by dennis darwis on 4/5/17.
-//  Copyright © 2017 Deakin University. All rights reserved.
+//  Created by NAUVAL ADIYASA on 4/05/2017.
+//  Copyright © 2017 NAUVAL ADIYASA. All rights reserved.
 //
 
 import UIKit
