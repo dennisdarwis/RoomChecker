@@ -20,6 +20,7 @@
 		AFD788201EBEDD8D00D3AC1F /* ViewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD7881F1EBEDD8D00D3AC1F /* ViewRoomViewController.swift */; };
 		AFD788221EBEDEEB00D3AC1F /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788211EBEDEEB00D3AC1F /* CustomViewCell.swift */; };
 		AFD788241EBEE03F00D3AC1F /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788231EBEE03F00D3AC1F /* RoomModel.swift */; };
+		AFD788261EBEFBE700D3AC1F /* RoomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788251EBEFBE700D3AC1F /* RoomDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,7 @@
 		AFD7881F1EBEDD8D00D3AC1F /* ViewRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRoomViewController.swift; sourceTree = "<group>"; };
 		AFD788211EBEDEEB00D3AC1F /* CustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
 		AFD788231EBEE03F00D3AC1F /* RoomModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
+		AFD788251EBEFBE700D3AC1F /* RoomDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				00A246AB1EBB2A0600C54BCB /* AppDelegate.swift */,
 				00A246AD1EBB2A0600C54BCB /* ViewController.swift */,
 				00A246AF1EBB2A0600C54BCB /* Main.storyboard */,
+				AFD788251EBEFBE700D3AC1F /* RoomDetailsViewController.swift */,
 				00A246B21EBB2A0600C54BCB /* Assets.xcassets */,
 				00A246B41EBB2A0600C54BCB /* LaunchScreen.storyboard */,
 				00A246B71EBB2A0600C54BCB /* Info.plist */,
@@ -521,6 +524,7 @@
 				AFD788241EBEE03F00D3AC1F /* RoomModel.swift in Sources */,
 				00A246AC1EBB2A0600C54BCB /* AppDelegate.swift in Sources */,
 				AFD788201EBEDD8D00D3AC1F /* ViewRoomViewController.swift in Sources */,
+				AFD788261EBEFBE700D3AC1F /* RoomDetailsViewController.swift in Sources */,
 				00A246DA1EBB2F7B00C54BCB /* ViewControllerBuilding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

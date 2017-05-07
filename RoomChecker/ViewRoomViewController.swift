@@ -47,6 +47,7 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as!CustomViewCell
         cell.roomName.text = lists[indexPath.row].roomName
+        
         /**
         let imageUrl = URL(string: lists[indexPath.row].imageUrl)
         cell.eventImage.kf.setImage(with: imageUrl)
