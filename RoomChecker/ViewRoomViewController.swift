@@ -22,6 +22,7 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
         roomModel.roomName = "P.90"
         roomModel.roomSchedule = "monday: 9:00AM - 8:00PM/ntuesday: 9:00AM - 8:00PM/n"
         lists.append(roomModel)
+    
         // Do any additional setup after loading the view.
     }
 
