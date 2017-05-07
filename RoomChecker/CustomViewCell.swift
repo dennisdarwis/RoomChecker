@@ -1,16 +1,17 @@
 //
-//  TableCellRoom.swift
+//  CustomViewCell.swift
 //  RoomChecker
 //
-//  Created by NAUVAL ADIYASA on 4/05/2017.
+//  Created by dennis darwis on 7/5/17.
 //  Copyright © 2017 NAUVAL ADIYASA. All rights reserved.
 //
 
 import UIKit
 
-class TableCellRoom: UITableViewCell {
+class CustomViewCell: UITableViewCell {
+    
 
-    @IBOutlet weak var Schedule: UILabel!
+    @IBOutlet var roomName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -15,10 +15,11 @@
 		00A246C11EBB2A0600C54BCB /* RoomCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A246C01EBB2A0600C54BCB /* RoomCheckerTests.swift */; };
 		00A246CC1EBB2A0600C54BCB /* RoomCheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A246CB1EBB2A0600C54BCB /* RoomCheckerUITests.swift */; };
 		00A246DA1EBB2F7B00C54BCB /* ViewControllerBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A246D91EBB2F7B00C54BCB /* ViewControllerBuilding.swift */; };
-		00A246DE1EBB379E00C54BCB /* TableViewRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A246DD1EBB379E00C54BCB /* TableViewRoom.swift */; };
-		00A246E01EBB380800C54BCB /* TableCellRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A246DF1EBB380800C54BCB /* TableCellRoom.swift */; };
 		AFD787D21EBB413B00D3AC1F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD787C51EBB413500D3AC1F /* Alamofire.framework */; };
 		AFD7881E1EBB419A00D3AC1F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD788111EBB419100D3AC1F /* SwiftyJSON.framework */; };
+		AFD788201EBEDD8D00D3AC1F /* ViewRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD7881F1EBEDD8D00D3AC1F /* ViewRoomViewController.swift */; };
+		AFD788221EBEDEEB00D3AC1F /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788211EBEDEEB00D3AC1F /* CustomViewCell.swift */; };
+		AFD788241EBEE03F00D3AC1F /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788231EBEE03F00D3AC1F /* RoomModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,10 +152,11 @@
 		00A246CB1EBB2A0600C54BCB /* RoomCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCheckerUITests.swift; sourceTree = "<group>"; };
 		00A246CD1EBB2A0600C54BCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00A246D91EBB2F7B00C54BCB /* ViewControllerBuilding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerBuilding.swift; sourceTree = "<group>"; };
-		00A246DD1EBB379E00C54BCB /* TableViewRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewRoom.swift; sourceTree = "<group>"; };
-		00A246DF1EBB380800C54BCB /* TableCellRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableCellRoom.swift; sourceTree = "<group>"; };
 		AFD787B91EBB413400D3AC1F /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "../Downloads/Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		AFD788051EBB419100D3AC1F /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = "../Downloads/SwiftyJSON-master/SwiftyJSON.xcodeproj"; sourceTree = "<group>"; };
+		AFD7881F1EBEDD8D00D3AC1F /* ViewRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRoomViewController.swift; sourceTree = "<group>"; };
+		AFD788211EBEDEEB00D3AC1F /* CustomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
+		AFD788231EBEE03F00D3AC1F /* RoomModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,8 +218,9 @@
 				00A246B41EBB2A0600C54BCB /* LaunchScreen.storyboard */,
 				00A246B71EBB2A0600C54BCB /* Info.plist */,
 				00A246D91EBB2F7B00C54BCB /* ViewControllerBuilding.swift */,
-				00A246DD1EBB379E00C54BCB /* TableViewRoom.swift */,
-				00A246DF1EBB380800C54BCB /* TableCellRoom.swift */,
+				AFD788211EBEDEEB00D3AC1F /* CustomViewCell.swift */,
+				AFD788231EBEE03F00D3AC1F /* RoomModel.swift */,
+				AFD7881F1EBEDD8D00D3AC1F /* ViewRoomViewController.swift */,
 			);
 			path = RoomChecker;
 			sourceTree = "<group>";
@@ -513,10 +516,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A246E01EBB380800C54BCB /* TableCellRoom.swift in Sources */,
 				00A246AE1EBB2A0600C54BCB /* ViewController.swift in Sources */,
+				AFD788221EBEDEEB00D3AC1F /* CustomViewCell.swift in Sources */,
+				AFD788241EBEE03F00D3AC1F /* RoomModel.swift in Sources */,
 				00A246AC1EBB2A0600C54BCB /* AppDelegate.swift in Sources */,
-				00A246DE1EBB379E00C54BCB /* TableViewRoom.swift in Sources */,
+				AFD788201EBEDD8D00D3AC1F /* ViewRoomViewController.swift in Sources */,
 				00A246DA1EBB2F7B00C54BCB /* ViewControllerBuilding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
