@@ -12,6 +12,7 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var tableView: UITableView!
     var lists = [RoomModel]()
     var arrRes = [[String: AnyObject]]()
+    var stringPassed = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

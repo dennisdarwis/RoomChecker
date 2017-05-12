@@ -9,6 +9,7 @@
 import UIKit
 
 class RoomDetailsViewController: UIViewController {
+    var stringPassed = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

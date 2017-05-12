@@ -24,10 +24,9 @@ class ViewController: UIViewController {
     
 
     @IBAction func abc(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let secondViewController = storyboard.instantiateViewController(withIdentifier: "ViewControllerBuilding") as! ViewControllerBuilding
-        self.present(secondViewController, animated: true, completion: nil)
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "ViewRoomViewController") as! ViewRoomViewController
+        myVC.stringPassed = "ada"
+        navigationController?.pushViewController(myVC, animated: true)
     }
-
 }
 
