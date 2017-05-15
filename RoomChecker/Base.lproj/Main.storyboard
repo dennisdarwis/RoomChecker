@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FYq-f2-FNf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FYq-f2-FNf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -38,7 +38,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="gs1-qT-E4D" kind="show" id="VQ0-mS-wdE"/>
+                                    <segue destination="gs1-qT-E4D" kind="show" animates="NO" id="UDw-Ra-c6e"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" image="waurnponds" translatesAutoresizingMaskIntoConstraints="NO" id="Mf2-s4-udY">
@@ -58,7 +58,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="abc:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ySi-6d-P7O"/>
+                                    <segue destination="fJh-3f-JzN" kind="show" identifier="segueToFavorite" id="ixb-KD-W3L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,7 +89,7 @@
         <!--View Controller Building-->
         <scene sceneID="0QV-LM-sFL">
             <objects>
-                <viewController storyboardIdentifier="ViewControllerBuilding" id="gs1-qT-E4D" customClass="ViewControllerBuilding" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewControllerBuilding" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gs1-qT-E4D" customClass="ViewControllerBuilding" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ngF-UP-911"/>
                         <viewControllerLayoutGuide type="bottom" id="fCH-5P-vai"/>
@@ -113,7 +113,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fJh-3f-JzN" kind="show" id="HcW-cn-b6W"/>
+                                    <segue destination="fJh-3f-JzN" kind="show" id="thh-L5-nni"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-AI-sXa">
@@ -170,12 +170,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9R-VE-ny6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967.20000000000005" y="-431.33433283358323"/>
+            <point key="canvasLocation" x="913" y="-750"/>
         </scene>
         <!--View Room View Controller-->
         <scene sceneID="Sa5-6D-f9a">
             <objects>
-                <viewController id="fJh-3f-JzN" customClass="ViewRoomViewController" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewRoomViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fJh-3f-JzN" customClass="ViewRoomViewController" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dXj-N9-mZL"/>
                         <viewControllerLayoutGuide type="bottom" id="ydo-QC-KHE"/>
@@ -202,11 +202,11 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IgS-wk-AK0" id="dhj-qf-VYN">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vzg-bC-eRu">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="48.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="48"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -217,7 +217,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="roomName" destination="Vzg-bC-eRu" id="XQ0-LO-3Qz"/>
-                                            <segue destination="Il3-sY-UEg" kind="show" id="7IA-BC-m0W"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -240,7 +239,7 @@
         <!--Room Details View Controller-->
         <scene sceneID="u73-Lq-L4l">
             <objects>
-                <viewController id="Il3-sY-UEg" customClass="RoomDetailsViewController" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RoomDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Il3-sY-UEg" customClass="RoomDetailsViewController" customModule="RoomChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Yut-Pb-8fq"/>
                         <viewControllerLayoutGuide type="bottom" id="n80-Fe-SVa"/>
@@ -261,4 +260,7 @@
         <image name="ui" width="800" height="531"/>
         <image name="waurnponds" width="640" height="360"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ixb-KD-W3L"/>
+    </inferredMetricsTieBreakers>
 </document>

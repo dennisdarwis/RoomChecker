@@ -22,6 +22,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToFavorite"{
+            print("to Favorite!")
+            let destinationVC = segue.destination as! ViewRoomViewController
+            destinationVC.stringPassed = "fav"
+        }
+    }
+    
 
     @IBAction func abc(_ sender: Any) {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "ViewRoomViewController") as! ViewRoomViewController

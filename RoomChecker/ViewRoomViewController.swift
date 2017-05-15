@@ -16,6 +16,7 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(stringPassed)
         let roomModel = RoomModel()
         roomModel.building = "A"
         roomModel.id = 0
