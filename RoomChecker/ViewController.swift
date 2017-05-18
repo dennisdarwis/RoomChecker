@@ -26,15 +26,8 @@ class ViewController: UIViewController {
         if segue.identifier == "segueToFavorite"{
             print("to Favorite!")
             let destinationVC = segue.destination as! ViewRoomViewController
-            destinationVC.stringPassed = "fav"
+            destinationVC.buildingFilter = "fav"
         }
-    }
-    
-
-    @IBAction func abc(_ sender: Any) {
-        let myVC = storyboard?.instantiateViewController(withIdentifier: "ViewRoomViewController") as! ViewRoomViewController
-        myVC.stringPassed = "ada"
-        navigationController?.pushViewController(myVC, animated: true)
     }
 }
 

@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     var lists = [RoomModel]()
+    let headers: HTTPHeaders = [
+        "X-DreamFactory-Api-Key": "62220ea2b6d61eb7aca380d40801ffccbc08bec358c72843023f626774493ac9",
+        "Content-Type": "application/json; charset=utf-8"
+    ]
     var arrRes = [[String: AnyObject]]()
-    var stringPassed = ""
+    var buildingFilter = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(stringPassed)
+        print(buildingFilter)
+        /** Testing for placeholder data
         let roomModel = RoomModel()
         roomModel.building = "A"
         roomModel.id = 0
@@ -24,8 +31,36 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
         roomModel.roomName = "P.90"
         roomModel.roomSchedule = "monday: 9:00AM - 8:00PM/ntuesday: 9:00AM - 8:00PM/n"
         lists.append(roomModel)
-    
+        **/
+        if buildingFilter != "fav"{
+            reload(filter:buildingFilter)
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    func reload(filter: String){
+        let url = "http://130.211.249.152/api/v2/mysql/_table/roomChecker?filter=building%20%3D%20"+filter
+        print("url "+url)
+        Alamofire.request(url, headers:headers).responseJSON { response in
+            let swiftyJsonVar = JSON(response.result.value!)
+            print("swiftyJsonVar "+String(describing: swiftyJsonVar))
+            if let resData = swiftyJsonVar["resource"].arrayObject {
+                self.arrRes = resData as! [[String: AnyObject]]
+                
+                for i in self.arrRes{
+                    let roomModel = RoomModel()
+                    roomModel.id = i["id"] as! Int
+                    roomModel.roomName = i["roomName"] as! String
+                    roomModel.building = i["building"] as! String
+                    roomModel.roomDetail = i["roomDetail"] as! String
+                    roomModel.roomSchedule = i["roomSchedule"] as! String
+                    self.lists.append(roomModel)
+                }
+            }
+            if self.arrRes.count > 0 {
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,15 +69,9 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
+ 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lists.count
     }
@@ -50,26 +79,19 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as!CustomViewCell
         cell.roomName.text = lists[indexPath.row].roomName
-        
-        /**
-        let imageUrl = URL(string: lists[indexPath.row].imageUrl)
-        cell.eventImage.kf.setImage(with: imageUrl)
-        cell.eventName.text=lists[indexPath.row].eventName
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
-        let eventDate = lists[indexPath.row].eventTimestamp
-        let dateString = dateFormatter.string(from: eventDate)
-        cell.eventDate.text = dateString
-        
-         let image = NSData(strurl)
-         cell.eventImage.image = eventImages[indexPath.row]
-         cell.eventName.text = eventNames[indexPath.row]
-         cell.eventVenue.text = eventVenues[indexPath.row]
-         cell.eventPrice.text = eventPrices[indexPath.row]
-         cell.eventDate.text = eventDates[indexPath.row]
-         **/
         return cell
-        
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRoomDetails"{
+            let destinationVC = segue.destination as! RoomDetailsViewController
+            destinationVC.roomModel = lists[(tableView.indexPathForSelectedRow?.row)!]
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
     
 

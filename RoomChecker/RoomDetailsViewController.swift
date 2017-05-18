@@ -9,10 +9,21 @@
 import UIKit
 
 class RoomDetailsViewController: UIViewController {
-    var stringPassed = ""
+    var roomModel = RoomModel()
 
+    @IBOutlet var roomName: UILabel!
+    @IBOutlet var buildingName: UILabel!
+    @IBOutlet var roomDetails: UILabel!
+    @IBOutlet var roomSchedule: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(roomModel.roomName+"\n"+roomModel.roomDetail)
+        roomName.text = roomModel.roomName
+        buildingName.text = roomModel.building
+        roomDetails.text = roomModel.roomDetail
+        roomSchedule.numberOfLines = 0
+        roomSchedule.text = roomModel.roomSchedule.replacingOccurrences(of: "/n", with: "")
 
         // Do any additional setup after loading the view.
     }
