@@ -250,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USV-pC-Otv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1922.4000000000001" y="-430.43478260869568"/>
+            <point key="canvasLocation" x="1920" y="-430"/>
         </scene>
         <!--Room Details View Controller-->
         <scene sceneID="u73-Lq-L4l">
@@ -359,6 +359,6 @@
         <image name="waurnponds" width="426" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="N4A-cD-1TZ"/>
+        <segue reference="ixb-KD-W3L"/>
     </inferredMetricsTieBreakers>
 </document>
