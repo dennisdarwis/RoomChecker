@@ -14,6 +14,7 @@ class RoomDetailsViewController: UIViewController {
     var addorremove = false
     var index = 0
     let userdefaults = UserDefaults.standard
+    
 
     @IBOutlet var favoriteButton: UIButton!
     @IBOutlet var roomName: UILabel!
@@ -37,15 +38,16 @@ class RoomDetailsViewController: UIViewController {
                 favorite.append(i)
                 if(i.roomName == roomModel.roomName){
                     addorremove = true
-                    index += 1
                 }
-                
             }
             
             
         }
         if (addorremove){
             favoriteButton.setTitle("Remove from favorite", for: .normal)
+        }
+        else{
+            favoriteButton.setTitle("Add to favorite", for: .normal)
         }
 
         // Do any additional setup after loading the view.
@@ -57,7 +59,6 @@ class RoomDetailsViewController: UIViewController {
     }
     
     @IBAction func addtoFavorite(_ sender: Any) {
-        
         
         if userdefaults.object(forKey: "favorite") == nil{
             let roomData = archiveRoom(room: [roomModel])
@@ -81,13 +82,28 @@ class RoomDetailsViewController: UIViewController {
             print(favorite[0].roomName)
         }
         else{
+            let myarray2 = userdefaults.object(forKey: "favorite") as? NSData
+            let abc2 = NSKeyedUnarchiver.unarchiveObject(with: myarray2! as Data) as? [RoomModel]
+            
+            for i in abc2!{
+                if(i.roomName == roomModel.roomName){
+                    addorremove = true
+                    break
+                }
+                index += 1
+            }
             favorite.remove(at: index)
             let roomData2 = archiveRoom(room: self.favorite)
             
             self.userdefaults.set(roomData2, forKey: "favorite")
             userdefaults.synchronize()
-            print(favorite[0].roomName)
         }
+        if (addorremove){
+            addorremove = false
+        }
+        viewDidLoad()
+        
+        
     }
     func archiveRoom(room:[RoomModel]) -> NSData {
         let archivedObject = NSKeyedArchiver.archivedData(withRootObject: room as NSArray)
