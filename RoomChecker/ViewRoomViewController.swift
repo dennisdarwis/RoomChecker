@@ -34,6 +34,14 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
         **/
         if buildingFilter != "fav"{
             reload(filter:buildingFilter)
+        } else{
+            let defaults = UserDefaults.standard
+            let myarray = defaults.object(forKey: "favorite") as? NSData
+            let abc = NSKeyedUnarchiver.unarchiveObject(with: myarray! as Data) as? [RoomModel]
+            for i in abc!{
+                lists.append(i)
+            }
+            self.tableView.reloadData()
         }
         // Do any additional setup after loading the view.
     }

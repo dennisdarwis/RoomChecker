@@ -19,6 +19,8 @@
 		AFD788221EBEDEEB00D3AC1F /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788211EBEDEEB00D3AC1F /* CustomViewCell.swift */; };
 		AFD788241EBEE03F00D3AC1F /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788231EBEE03F00D3AC1F /* RoomModel.swift */; };
 		AFD788261EBEFBE700D3AC1F /* RoomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD788251EBEFBE700D3AC1F /* RoomDetailsViewController.swift */; };
+		DB1F9B1F1ECECF510053C302 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF35F10D1EC5C02500CFDD11 /* Alamofire.framework */; };
+		DB1F9B281ECECF560053C302 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF35F13F1EC5C06400CFDD11 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1F9B281ECECF560053C302 /* SwiftyJSON.framework in Frameworks */,
+				DB1F9B1F1ECECF510053C302 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

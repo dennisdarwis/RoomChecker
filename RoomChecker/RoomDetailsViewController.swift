@@ -33,6 +33,46 @@ class RoomDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addtoFavorite(_ sender: Any) {
+        let userdefaults = UserDefaults.standard
+        var favorite = [RoomModel]()
+        if userdefaults.object(forKey: "favorite") == nil{
+            let roomData = archiveRoom(room: [roomModel])
+            let defaults = UserDefaults.standard
+            defaults.set(roomData, forKey: "favorite")
+            defaults.synchronize()
+            let abc = NSKeyedUnarchiver.unarchiveObject(with: roomData as Data) as? [RoomModel]
+            for i in abc!{
+                favorite.append(i)
+            }
+            print(favorite[0].building)
+            
+        
+        }
+        else{
+            let defaults = UserDefaults.standard
+            let myarray = defaults.object(forKey: "favorite") as? NSData
+            let abc = NSKeyedUnarchiver.unarchiveObject(with: myarray! as Data) as? [RoomModel]
+            for i in abc!{
+                favorite.append(i)
+            }
+            favorite.append(roomModel)
+            
+            let roomData2 = archiveRoom(room: favorite)
+            
+            defaults.set(roomData2, forKey: "favorite")
+            defaults.synchronize()
+            print(favorite[0].roomName)
+
+            
+
+            
+        }
+    }
+    func archiveRoom(room:[RoomModel]) -> NSData {
+        let archivedObject = NSKeyedArchiver.archivedData(withRootObject: room as NSArray)
+        return archivedObject as NSData
+    }
 
     /*
     // MARK: - Navigation
