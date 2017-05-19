@@ -330,8 +330,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u1x-gp-3ft">
-                                <rect key="frame" x="134" y="397" width="107" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="96" y="386" width="184" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add to Favorite">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -348,6 +348,7 @@
                     </view>
                     <connections>
                         <outlet property="buildingName" destination="iFr-aH-01J" id="2rz-pi-VR1"/>
+                        <outlet property="favoriteButton" destination="u1x-gp-3ft" id="aaa-af-r9C"/>
                         <outlet property="roomDetails" destination="Pff-fb-3Re" id="yN6-Ob-b1j"/>
                         <outlet property="roomName" destination="gnr-bv-k9j" id="Zf5-el-VrO"/>
                         <outlet property="roomSchedule" destination="FTE-3O-ZOK" id="fWV-AJ-xgT"/>

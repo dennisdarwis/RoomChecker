@@ -10,7 +10,12 @@ import UIKit
 
 class RoomDetailsViewController: UIViewController {
     var roomModel = RoomModel()
+    var favorite = [RoomModel]()
+    var addorremove = false
+    var index = 0
+    let userdefaults = UserDefaults.standard
 
+    @IBOutlet var favoriteButton: UIButton!
     @IBOutlet var roomName: UILabel!
     @IBOutlet var buildingName: UILabel!
     @IBOutlet var roomDetails: UILabel!
@@ -24,6 +29,24 @@ class RoomDetailsViewController: UIViewController {
         roomDetails.text = roomModel.roomDetail
         roomSchedule.numberOfLines = 0
         roomSchedule.text = roomModel.roomSchedule.replacingOccurrences(of: "/n", with: "")
+        
+        if userdefaults.object(forKey: "favorite") != nil{
+            let myarray = userdefaults.object(forKey: "favorite") as? NSData
+            let abc = NSKeyedUnarchiver.unarchiveObject(with: myarray! as Data) as? [RoomModel]
+            for i in abc!{
+                favorite.append(i)
+                if(i.roomName == roomModel.roomName){
+                    addorremove = true
+                    index += 1
+                }
+                
+            }
+            
+            
+        }
+        if (addorremove){
+            favoriteButton.setTitle("Remove from favorite", for: .normal)
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -34,13 +57,13 @@ class RoomDetailsViewController: UIViewController {
     }
     
     @IBAction func addtoFavorite(_ sender: Any) {
-        let userdefaults = UserDefaults.standard
-        var favorite = [RoomModel]()
+        
+        
         if userdefaults.object(forKey: "favorite") == nil{
             let roomData = archiveRoom(room: [roomModel])
-            let defaults = UserDefaults.standard
-            defaults.set(roomData, forKey: "favorite")
-            defaults.synchronize()
+            
+            userdefaults.set(roomData, forKey: "favorite")
+            userdefaults.synchronize()
             let abc = NSKeyedUnarchiver.unarchiveObject(with: roomData as Data) as? [RoomModel]
             for i in abc!{
                 favorite.append(i)
@@ -49,24 +72,21 @@ class RoomDetailsViewController: UIViewController {
             
         
         }
-        else{
-            let defaults = UserDefaults.standard
-            let myarray = defaults.object(forKey: "favorite") as? NSData
-            let abc = NSKeyedUnarchiver.unarchiveObject(with: myarray! as Data) as? [RoomModel]
-            for i in abc!{
-                favorite.append(i)
-            }
-            favorite.append(roomModel)
+        else if(!addorremove){
+            self.favorite.append(roomModel)
+            let roomData2 = archiveRoom(room: self.favorite)
             
-            let roomData2 = archiveRoom(room: favorite)
-            
-            defaults.set(roomData2, forKey: "favorite")
-            defaults.synchronize()
+            self.userdefaults.set(roomData2, forKey: "favorite")
+            userdefaults.synchronize()
             print(favorite[0].roomName)
-
+        }
+        else{
+            favorite.remove(at: index)
+            let roomData2 = archiveRoom(room: self.favorite)
             
-
-            
+            self.userdefaults.set(roomData2, forKey: "favorite")
+            userdefaults.synchronize()
+            print(favorite[0].roomName)
         }
     }
     func archiveRoom(room:[RoomModel]) -> NSData {
