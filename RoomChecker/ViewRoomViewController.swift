@@ -98,6 +98,9 @@ class ViewRoomViewController: UIViewController, UITableViewDataSource, UITableVi
         if segue.identifier == "toRoomDetails"{
             let destinationVC = segue.destination as! RoomDetailsViewController
             destinationVC.roomModel = lists[(tableView.indexPathForSelectedRow?.row)!]
+            if buildingFilter == "fav"{
+                destinationVC.fav = true
+            }
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

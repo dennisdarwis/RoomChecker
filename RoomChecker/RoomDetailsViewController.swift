@@ -14,6 +14,9 @@ class RoomDetailsViewController: UIViewController {
     var addorremove = false
     var index = 0
     let userdefaults = UserDefaults.standard
+    var fav = Bool()
+    var alertAdded = UIAlertController(title: "Added", message: "Added to Favorite", preferredStyle: .alert)
+    var alertRemoved = UIAlertController(title: "Removed", message: "Removed from Favorite", preferredStyle: .alert)
     
 
     @IBOutlet var favoriteButton: UIButton!
@@ -59,7 +62,10 @@ class RoomDetailsViewController: UIViewController {
     }
     
     @IBAction func addtoFavorite(_ sender: Any) {
-        
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default){
+            UIAlertAction in
+            self.toHome()
+        }
         if userdefaults.object(forKey: "favorite") == nil{
             let roomData = archiveRoom(room: [roomModel])
             
@@ -80,6 +86,9 @@ class RoomDetailsViewController: UIViewController {
             self.userdefaults.set(roomData2, forKey: "favorite")
             userdefaults.synchronize()
             print(favorite[0].roomName)
+            alertAdded.addAction(action)
+            self.present(alertAdded, animated: true, completion: nil)
+            alertAdded = UIAlertController()
         }
         else{
             let myarray2 = userdefaults.object(forKey: "favorite") as? NSData
@@ -97,6 +106,9 @@ class RoomDetailsViewController: UIViewController {
             
             self.userdefaults.set(roomData2, forKey: "favorite")
             userdefaults.synchronize()
+            alertRemoved.addAction(action)
+            self.present(alertRemoved, animated: true, completion: nil)
+            alertRemoved = UIAlertController()
         }
         if (addorremove){
             addorremove = false
@@ -105,9 +117,21 @@ class RoomDetailsViewController: UIViewController {
         
         
     }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
+        
+    }
+    
     func archiveRoom(room:[RoomModel]) -> NSData {
         let archivedObject = NSKeyedArchiver.archivedData(withRootObject: room as NSArray)
         return archivedObject as NSData
+    }
+    
+    func toHome(){
+        print("toHome")
+        if fav{
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
 
     /*
